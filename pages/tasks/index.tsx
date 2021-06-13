@@ -38,15 +38,17 @@ const Index = (props: Props) => {
           <div key={t.id} className="columns">
             <div className="column is-one-third">
               <div className="card">
-                <Link href={`tasks/${String(t.id)}`}>
-                  <div className="card-image">
-                    <figure className="image is-4by3">
-                      <img
-                        src="https://bulma.io/images/placeholders/1280x960.png"
-                        alt="Placeholder image"
-                      />
-                    </figure>
-                  </div>
+                <Link href={`/tasks/${String(t.id)}`}>
+                  <a>
+                    <div className="card-image">
+                      <figure className="image is-4by3">
+                        <img
+                          src="https://bulma.io/images/placeholders/1280x960.png"
+                          alt="Placeholder image"
+                        />
+                      </figure>
+                    </div>
+                  </a>
                 </Link>
                 <div className="card-content">
                   <div className="media">
@@ -84,12 +86,23 @@ const Index = (props: Props) => {
                     <br />
                     {dayjs(t.created_at).format("YYYY-MM-DD HH:mm:ss")}
                   </div>
-                  <button
-                    className="button is-danger is-outlined"
-                    onClick={() => handleDelete(t.id)}
-                  >
-                    delete
-                  </button>
+                  <div className="columns">
+                    <div className="column">
+                      <Link href={`/tasks/update/${t.id}`}>
+                        <button className="button is-primary">
+                          タスクの更新
+                        </button>
+                      </Link>
+                    </div>
+                    <div className="column">
+                      <button
+                        className="button is-danger is-outlined"
+                        onClick={() => handleDelete(t.id)}
+                      >
+                        削除
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
