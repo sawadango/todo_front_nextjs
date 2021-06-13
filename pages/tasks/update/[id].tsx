@@ -69,7 +69,7 @@ const Update = (props: Props) => {
 
           <div className="field">
             <p className="control">
-              <input type="submit" className="button is-success" value="作成" />
+              <input type="submit" className="button is-success" value="更新" />
             </p>
           </div>
         </form>
